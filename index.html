@@ -41,13 +41,13 @@
 
         <div class="tw-flex tw-h-[100vh] tw-w-full">
             <section
-                class="tw-relative tw-bg-secondary tw-text-textColor tw-flex tw-min-h-[100vh] tw-max-w-[240px] tw-min-w-[240px] tw-flex-col 
+                class="tw-relative tw-bg-secondary tw-text-textColor tw-flex tw-min-h-[100vh] tw-max-w-[240px] tw-min-w-[230px] tw-flex-col
                         tw-overflow-hidden  max-md:tw-mt-[50px] "
             >
 
                 <div class="tw-w-full tw-gap-2 tw-flex tw-p-4 tw-flex-col">
 
-                    <div class="page-link tw-flex tw-flex-gap-1">
+                    <div onclick="loadPage('/home')" class="page-link tw-flex tw-flex-gap-1">
 
                         <div class="icon">
                             <img src="assets/logo.png" class="tw-object-contain">
@@ -55,19 +55,13 @@
 
                         <div class="">Matteo's Journal</div>
 
-                        <i class="bi bi-chevron-down tw-text-sm"></i>
-
                     </div>
 
-                    <button onclick="loadPage('/about')" class="page-link tw-text-base tw-flex tw-flex-gap-1">
-                        <i class="bi bi-house"></i>
-                        <div class="">Home</div>
-                    </button>
 
                 </div>
 
-                <div class="tw-mt-4 tw-px-4 tw-text-sm">
-                    Journal
+                <div class="tw-mt-1 tw-px-4">
+                    - - - Journal - - -
                 </div>
 
                 <div
@@ -78,17 +72,14 @@
                 </div>
             </section>
 
-            <section
-                class="tw-relative tw-bg-white tw-flex tw-h-full tw-w-full tw-max-w-[100vw] tw-flex-col"
-                
-            >   
+            <section class="tw-relative tw-bg-white tw-flex tw-h-full tw-w-full tw-max-w-[100vw] tw-flex-col">
 
                 <div class="tw-flex tw-w-full tw-text-sm tw-p-2" id="title">
 
                 </div>
 
                 <div class="tw-overflow-auto tw-min-h-[30vh] tw-h-full tw-px-[25%] tw-w-full">
-                    <div class="tw-w-full tw-flex tw-mt-[140px]">
+                    <div class="tw-w-full tw-flex">
                         <div class="tw-w-[85px] tw-h-[85px] tw-flex tw-place-content-center tw-items-center tw-text-6xl tw-overflow-hidden tw-text-6xl tw-rounded-lg" id="content-icon">
 
                         </div>
@@ -96,7 +87,7 @@
                     <div
                         class="tw-mt-8 tw-gap-10 content tw-pb-[30vh]" id="content"
                     >
-                        
+
                     </div>
                 </div>
             </section>

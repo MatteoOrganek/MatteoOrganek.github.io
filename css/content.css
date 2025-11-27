@@ -1,4 +1,14 @@
 
+
+:root{
+    --primary-text-color: #1F2123;
+    --primary-activated-text-color: #F6FFF8;
+    --secondary-activated-text-color: #A4C3B2;
+    --primary-button-color: #A4C3B2;
+    --secondary-button-color: #6B9080;
+    --input-focus-bd-color: #0d0d0d;
+}
+
 .content{
     font-size: 16px;
     line-height: 30px;
@@ -21,6 +31,7 @@
 .content > h3{
     font-size: 1.25em;
     font-weight: 600;
+    color: var(--primary-button-color);
 }
 
 .content a{
@@ -54,4 +65,12 @@
 
 .content code{
     background-color: transparent !important;
-}   
+}
+
+::selection {
+    background-color:var(--secondary-button-color);
+    color:  var(--primary-activated-text-color);
+}
+.withMargin{
+    margin-bottom:100px;
+}

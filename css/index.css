@@ -1,8 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
 :root{
-
     --primary-text-color: #1F2123;
+    --primary-activated-text-color: #F6FFF8;
+    --secondary-activated-text-color: #A4C3B2;
+    --primary-button-color: #A4C3B2;
+    --secondary-button-color: #6B9080;
     --input-focus-bd-color: #0d0d0d;
 }
 
@@ -47,7 +50,7 @@ header > .collapsible-header{
 }
 
 .animated-collapse{
-    transition: width 0.3s ease;
+    transition: width 0.2s ease;
 }
 
 .header-links {
@@ -90,6 +93,7 @@ header > .collapsible-header{
     cursor: pointer;
     align-items: center;
     gap: 10px;
+    transition: background-color 0.2s ease-in;
 }
 
 .page-link .icon{
@@ -100,12 +104,17 @@ header > .collapsible-header{
 }
 
 .page-link:hover, .page-link.active{
-    background-color: #efefed;
+    background-color: var(--primary-button-color);
+    color: var(--primary-activated-text-color);
+
+    transition: background-color 0.2s ease-in;
 }
 
 .page-link.active{
-    color: #272726;
+    background-color:  var(--secondary-button-color);
+    color: var(--primary-activated-text-color);
     font-weight: 420;
+    transition: background-color 0.2s ease-in;
 }
 
 .btn{
@@ -121,7 +130,8 @@ header > .collapsible-header{
 }
 
 .btn:hover{
-    background-color: #efefed;
+    background-color: var(--primary-button-color);
+    transition: background-color 0.2s ease-in;
 }
 
 .btn:disabled{
@@ -159,10 +169,6 @@ header > .collapsible-header{
 .footer-link{
     color: #0d0d0d;
     transition: color 0.3s;
-}
-
-.footer-link:hover{
-    color: var(--footer-link-hover);
 }
 
 

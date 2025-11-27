@@ -1,45 +1,59 @@
 {
-    "name": "Paul's portfolio",
-    "icon": "./assets/images/home/paul.png",
+    "name": "Matteo's Journal",
+    "icon": "./assets/logo.png",
 
     "pages": [
         {
-            "name": "About",
-            "link": "/about",
-            "content": "content/about.md"
+            "icon": "bi bi-house",
+            "name": "Home",
+            "link": "/home",
+            "content": "content/home.md"
         },
         {
+            "icon": "bi bi-1-circle",
             "name": "Week 1",
             "link": "/week1",
             "content": "content/week1.md"
         },
         {
+            "icon": "bi bi-2-circle",
             "name": "Week 2",
             "link": "/week2",
             "content": "content/week2.md"
         },
         {
+            "icon": "bi bi-3-circle",
             "name": "Week 3",
             "link": "/week3",
             "content": "content/week3.md"
         },
         {
+            "icon": "bi bi-4-circle",
             "name": "Week 4",
             "link": "/week4",
             "content": "content/week4.md"
         },
         {
+            "icon": "bi bi-5-circle",
             "name": "Week 5",
             "link": "/week5",
             "content": "content/week5.md"
         },
         {
+            "icon": "bi bi-6-circle",
             "name": "Week 6",
             "link": "/week6",
             "content": "content/week6.md"
         },
         {
+            "icon": "bi bi-7-circle",
             "name": "Week 7",
+            "link": "/week7",
+            "content": "content/week7.md"
+        },
+        {
+            "icon": "bi bi-list-nested",
+            "name": "References",
             "link": "/week7",
             "content": "content/week7.md"
         }

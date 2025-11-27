@@ -61,30 +61,32 @@ fetchDB().then((data) => {
     }
     dataCache = data
     loadSearchResults(data['pages'])
-    loadPage('/about')
+    loadPage('/home')
 })
 
 
 function buildSideBar(icon, name, link, content){
 
-    let iconElement = ""
-    
-    if (isFileOrLink(icon)){
-        iconElement = `<div class="icon"><img src=${icon} class="tw-object-contain" ></div>`
-    }else if (isEmoji(icon)){
-        iconElement = `<p class="">${icon}</p>` // bootstrap icon class
+    if  (name !== "Home") {
+        let iconElement = ""
 
-    }else{     
-        iconElement = `<i class="${icon ?? "bi bi-file-earmark"}"></i>` // bootstrap icon class
-    }
+        if (isFileOrLink(icon)){
+            iconElement = `<div class="icon"><img src=${icon} class="tw-object-contain" ></div>`
+        }else if (isEmoji(icon)){
+            iconElement = `<p class="">${icon}</p>` // bootstrap icon class
+
+        }else{
+            iconElement = `<i class="${icon ?? "bi bi-file-earmark"}"></i>` // bootstrap icon class
+        }
 
 
-    sideBarContent.innerHTML += `
+        sideBarContent.innerHTML += `
         <button onclick="updateContent('${content}', '${icon}', '${name}', '${link}')" id="${link}" class="page-link tw-text-base tw-flex tw-flex-gap-1">
             ${iconElement}
             <div class="">${name}</div>
         </button>
     `
+    }
 }
 
 async function updateContent(path, icon, title, link){
@@ -92,20 +94,12 @@ async function updateContent(path, icon, title, link){
     const body = await fetchContent(path)
 
     let iconElement = ""
-    
-    if (isFileOrLink(icon)){
-        iconElement = `<img src=${icon} class="tw-object-cover tw-w-full tw-h-full" >`
-    }else if (isEmoji(icon)){
-        iconElement = `<p class="">${icon}</p>` // bootstrap icon class
 
-    }else{     
-        iconElement = `<i class="${icon ?? "bi bi-file-earmark"}"></i>` // bootstrap icon class
-    }
+    iconElement = `<i class="${icon ?? "bi bi-file-earmark"}"></i>` // bootstrap icon class
 
-    document.querySelector("#content-icon").innerHTML = iconElement
     document.querySelector("#title").innerHTML = `
                                 <div class='tw-flex tw-gap-1'>
-                                    <div class="tw-w-[20px] tw-h-[20px] tw-text-sm tw-rounded-sm tw-overflow-hidden">${iconElement}</div> 
+                                    <div class=" tw-text-sm tw-rounded-sm tw-overflow-hidden">${iconElement}</div> 
                                     ${title}
                                 </div>
                                 `
@@ -220,3 +214,5 @@ window.addEventListener("keydown", (event) => {
     }
 
 })
+
+
