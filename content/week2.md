@@ -93,7 +93,7 @@ getenforce
 ---
 &nbsp;
 
-### Threat Model & Mitigation Strategies
+### > Threat Model & Mitigation Strategies
 
 Below you may find three different threats and their respective mitigation strategies:
 

@@ -63,7 +63,7 @@ fetchDB().then((data) => {
     loadSearchResults(data['pages'])
     // TODO Change back to home when finished
     // Selects first page load
-    loadPage('/week2')
+    loadPage('/week3')
 })
 
 
