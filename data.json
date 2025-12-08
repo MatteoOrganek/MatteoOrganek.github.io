@@ -54,8 +54,8 @@
         {
             "icon": "bi bi-list-nested",
             "name": "References",
-            "link": "/week7",
-            "content": "content/week7.md"
+            "link": "/references",
+            "content": "content/references.md"
         }
     ]
 

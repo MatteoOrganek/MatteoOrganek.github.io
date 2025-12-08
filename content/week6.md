@@ -1,4 +1,4 @@
-## Phase 6: Performance Evaluation and Analysis (Week 6)
+## Performance Evaluation and Analysis
 
 Execute detailed performance testing and analyse operating system behaviour under different
 workloads.

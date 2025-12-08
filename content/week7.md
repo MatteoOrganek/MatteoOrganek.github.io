@@ -1,4 +1,4 @@
-## Phase 7: Security Audit and System Evaluation (Week 7)
+## Security Audit and System Evaluation
 Conduct a security audit and evaluate overall system configuration.
 Mandatory Audit Tasks: Security scanning with Lynis, network security assessment with
 nmap, access control verification, service audit justifying all running services, and system

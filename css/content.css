@@ -7,6 +7,7 @@
     --primary-button-color: #A4C3B2;
     --secondary-button-color: #6B9080;
     --input-focus-bd-color: #0d0d0d;
+    --dark: #1c3d2f;
 }
 
 .content{
@@ -58,23 +59,82 @@
 
 .content blockquote{
     padding: 4px 8px;
-    border-left: 3px solid #37352f;
+    border-left: 3px solid var(--secondary-button-color);
 }   
 
 
 .content pre{
-    padding: 10px;
-    background-color: #f7f6f3;
-}  
+    padding: 5px;
+    background-color: var(--primary-button-color);
+    border-radius: 10px;
+}
 
-.content code{
-    background-color: transparent !important;
+div.code-container {
+    background-color: blue;
+    border-radius: 8px;
+    padding: 1em;
+    overflow-x: auto;
+}
+
+/* Code itself is untouched */
+div.code-container code {
+    background: none;  /* transparent, but no color overrides */
+    font-family: monospace;
+}
+
+p[align="canter"] > img {
+    float: left;
+    margin-left: 1rem;  /* optional spacing */
+    margin-bottom: 1rem;
+}
+
+code {
+    background-color: var(--primary-button-color);
+    color: var(--primary-activated-text-color);
+    padding: 0.2em 0.4em;      /* small padding around text */
+    margin: 0;                  /* no extra margin */
+    font-size: 85%;            /* slightly smaller than normal text */
+    font-family: Consolas, "Courier New", monospace; /* monospace font */
+    border-radius: 6px;         /* rounded corners */
 }
 
 ::selection {
     background-color:var(--secondary-button-color);
     color:  var(--primary-activated-text-color);
 }
+
 .withMargin{
     margin-bottom:100px;
+}
+/* Table container */
+table {
+    border-collapse: collapse;
+    width: 100%;
+    margin-bottom: 1rem;
+    font-size: 0.95em;
+    border: 1px solid #d0d7de; /* light border around table */
+}
+
+/* Table header */
+th {
+    background-color: #f6f8fa;
+    font-weight: 600;
+    text-align: left;
+    padding: 0.5em 0.75em;
+    border: 1px solid #d0d7de;
+}
+
+/* Table body cells */
+td {
+    padding: 0.5em 0.75em;
+    border: 1px solid #d0d7de;
+}
+
+/* Optional: striped rows */
+tbody tr:nth-child(odd) {
+    background-color: #ffffff;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #f6f8fa;
 }

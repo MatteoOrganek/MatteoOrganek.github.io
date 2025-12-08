@@ -1,4 +1,4 @@
-## Phase 4: Initial System Configuration & Security Implementation (Week 4)
+## Initial System Configuration & Security Implementation
 
 Deploy your server and implement foundational security controls.
 Deliverables (Journal and Video):

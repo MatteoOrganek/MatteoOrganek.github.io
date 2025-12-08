@@ -61,7 +61,9 @@ fetchDB().then((data) => {
     }
     dataCache = data
     loadSearchResults(data['pages'])
-    loadPage('/home')
+    // TODO Change back to home when finished
+    // Selects first page load
+    loadPage('/week2')
 })
 
 
@@ -99,9 +101,8 @@ async function updateContent(path, icon, title, link){
 
     document.querySelector("#title").innerHTML = `
                                 <div class='tw-flex tw-gap-1'>
-                                    <div class=" tw-text-sm tw-rounded-sm tw-overflow-hidden">${iconElement}</div> 
-                                    ${title}
-                                </div>
+                                    <div class=" tw-text-sm tw-rounded-sm tw-overflow-hidden" style="padding-right: .1rem"> ${iconElement}
+                                    </div> ${title}</div>
                                 `
 
     content.innerHTML = `
@@ -215,4 +216,16 @@ window.addEventListener("keydown", (event) => {
 
 })
 
+document.querySelector("#content").addEventListener("click", function(e){
+    const target = e.target.closest("a");
+    if(!target) return;
 
+    const href = target.getAttribute("href");
+
+    if(href.endsWith(".md") || href.startsWith("#ref:")) {
+        e.preventDefault();
+
+        loadPage(href.replace("#ref:", "").replace(".md",""));
+        return;
+    }
+});
