@@ -6,12 +6,14 @@ This type of setup will make sure that the communication between systems will ha
 
 > In this journal's section you may find the documentation covering the system architecture, distribution decisions, workstation selection, and network configuration.
 
-The diagram shown below describes the system architecture. 
+&nbsp;
+
+*The diagram shown below describes the system architecture.*
 
 ![diagram](assets/week1/diagram.png)
 
-- *Virtual Machine 1* – Server: Fedora Linux server distribution (Virtual Machine)
-- *Virtual Machine 2* – Client (Workstation): Ubuntu Linux distribution
+- *Server*: Fedora Linux server distribution (Virtual Machine)
+- *Client* (Workstation): Ubuntu Linux distribution (Virtual Machine)
 - *Physical Machine (Host)* - Windows personal computer. Provides the WLAN connection through the VirtualBox bridged adapter 
 
 
@@ -20,7 +22,7 @@ The diagram shown below describes the system architecture.
 ---
 ### > Operating System Selection
 
-I chose Fedora Server for the server side due to the fast, reliable performance and strong security defaults with no bloatware. Fedora has newer Linux kernels and server components, which is ideal for experimenting with modern features, additionally, SELinux is enforced by default, providing better out-of-the-box protection. [[4]](/references.md)
+I chose Fedora Server for the server side due to the fast, reliable performance and strong security defaults with no bloatware. Fedora has newer Linux kernels and server components, which is ideal for experimenting with modern features, additionally, SELinux is enforced by default, providing better out-of-the-box protection [[4]](/references.md).
 
 | Distribution    | Pros                                                                  | Cons                                             |
 |-----------------|-----------------------------------------------------------------------|--------------------------------------------------|
@@ -70,43 +72,58 @@ sudo nmcli connection up "enp0s3"
 
 Finally, I collected system information from both VMs using standard Linux commands:
 
-> `uname` prints information about the system’s kernel and architecture.
-The `-a` flag means “print all available information”.
 ```bash
 uname -a
 ```
+> `uname` prints information about the system’s kernel and architecture.
+The `-a` flag means “print all available information”.
+
 ![Ubuntu uname](../assets/week1/u_uname.png)
 ![Fedora uname](../assets/week1/f_uname.png)
 
-> `free` displays the amount of RAM and swap memory currently in use and available.
-`-h` defines the human-readable format (MB/GB instead of bytes)
+&nbsp;
+
 ```bash
 free -h
 ```
+> `free` displays the amount of RAM and swap memory currently in use and available.
+`-h` defines the human-readable format (MB/GB instead of bytes)
+
 ![Ubuntu free](../assets/week1/u_free.png)
 ![Fedora free](../assets/week1/f_free.png)
 
-> `df -h` shows disk space usage for all mounted filesystems.
-`-h` defines the human-readable format (MB/GB instead of bytes)
+&nbsp;
+
 ```bash
 df -h
 ```
+> `df -h` shows disk space usage for all mounted filesystems.
+`-h` defines the human-readable format (MB/GB instead of bytes)
+
 ![Ubuntu df](../assets/week1/u_df.png)
 ![Fedora df](../assets/week1/f_df.png)
 
-> `ip addr` displays detailed information about the system’s network interfaces.
+&nbsp;
+
 ```bash
 ip addr
 ```
+> `ip addr` displays detailed information about the system’s network interfaces.
+
 ![Ubuntu df](../assets/week1/u_ipaddr.png)
 ![Fedora df](../assets/week1/f_ipaddr.png)
 
-> `lsb_release -a` prints information about the Linux distribution. (Fedora only accepts `cat /etc/fedora-release`)
+&nbsp;
+
 ```bash
 lsb_release -a
 ```
+> `lsb_release -a` prints information about the Linux distribution. (Fedora only accepts `cat /etc/fedora-release`)
+
 
 ![Ubuntu df](../assets/week1/u_lsb.png)
 ![Fedora df](../assets/week1/f_lsb.png)
+
+&nbsp;
 
 *All commands functionalities have been discovered through web searches.*

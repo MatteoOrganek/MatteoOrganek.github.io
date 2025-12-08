@@ -129,24 +129,6 @@ function loadPage(pageLink){
     updateContent(item.content, item.icon, item.name, item.link)
 }
 
-function searchOnClick(link){
-    loadPage(link)
-    setTimeout(closeSearch, 100)
-}
-
-function updateSearch(event){
-
-    let searchResults = []
-
-    dataCache['pages'].forEach(item => {
-        if (item.name.toLowerCase().startsWith(event.target.value.toLowerCase())){
-            searchResults.push(item)
-        }
-    })
-
-    loadSearchResults(searchResults)
-
-}
 
 function loadSearchResults(data){
 
@@ -180,33 +162,6 @@ function loadSearchResults(data){
 
 }
 
-function searchClickOutside(event){
-
-    if (!searchContainer.contains(event.target)){
-        closeSearch()
-    }
-
-
-}
-
-function openSearch(){
-
-    searchBGContainer.classList.remove("tw-hidden")
-    setTimeout(() => {
-        searchInput.focus()
-    }, 1)
-
-    setTimeout(() => window.document.addEventListener("click", searchClickOutside), 100)
-
-}
-
-
-function closeSearch(){
-
-    searchBGContainer.classList.add("tw-hidden")
-    window.document.removeEventListener("click", searchClickOutside)
-
-}
 
 window.addEventListener("keydown", (event) => {
     console.log("press")
