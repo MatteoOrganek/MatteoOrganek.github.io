@@ -60,7 +60,6 @@ fetchDB().then((data) => {
         buildSideBar(x.icon, x.name, x.link, x.content)
     }
     dataCache = data
-    loadSearchResults(data['pages'])
     // TODO Change back to home when finished
     // Selects first page load
     loadPage('/week3')
@@ -115,6 +114,8 @@ async function updateContent(path, icon, title, link){
     })
 
     document.getElementById(link).classList.add("active")
+
+    content.parentElement.scrollTo({ top: 0, behavior: "smooth" })
 }
 
 function loadPage(pageLink){
@@ -129,47 +130,6 @@ function loadPage(pageLink){
     updateContent(item.content, item.icon, item.name, item.link)
 }
 
-
-function loadSearchResults(data){
-
-    if (data.length === 0){
-        return 
-    }
-    searchDropDown.innerHTML = ""
-
-    data.forEach((item) => {
-
-        let icon = item.icon
-        let iconElement = ""
-        if (isFileOrLink(icon)){
-            iconElement = `<img src=${icon} class="tw-object-cover tw-w-full tw-h-full" >`
-        }else if (isEmoji(icon)){
-            iconElement = `<p class="">${icon}</p>` // bootstrap icon class
-    
-        }else{     
-            iconElement = `<i class="${icon ?? "bi bi-file-earmark"} "></i>` // bootstrap icon class
-        }
-
-        searchDropDown.innerHTML += `
-                <button onclick="searchOnClick('${item.link}')" class="tw-flex tw-text-base tw-place-items-center tw-gap-2 tw-rounded-sm tw-cursor-pointer tw-p-2 tw-px-3 tw-w-full hover:tw-bg-[#f1f0ef]">
-                    <div class="tw-w-[20px] tw-text-sm tw-h-[20px] tw-overflow-hidden tw-rounded-sm">
-                        ${iconElement} 
-                    </div>
-                    ${item.name}
-                </button>
-            `
-    })
-
-}
-
-
-window.addEventListener("keydown", (event) => {
-    console.log("press")
-    if (event.key === 'Escape'){
-        closeSearch()
-    }
-
-})
 
 document.querySelector("#content").addEventListener("click", function(e){
     const target = e.target.closest("a");
