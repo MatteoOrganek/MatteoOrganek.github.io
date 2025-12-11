@@ -10,7 +10,7 @@ This type of setup will make sure that the communication between systems will ha
 
 *The diagram shown below describes the system architecture.*
 
-![diagram](assets/week1/diagram.png)
+![diagram](../assets/week1/diagram.png)
 
 - *Server*: Fedora Linux server distribution (Virtual Machine)
 - *Client* (Workstation): Ubuntu Linux distribution (Virtual Machine)

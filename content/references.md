@@ -12,8 +12,9 @@
 ---
 > **[6]** Clem, “Monthly News – February 2016 – The Linux Mint Blog,” Linuxmint.com, Mar. 2016. [Online]. Available [here](https://blog.linuxmint.com/?p=3007).
 ---
-> **[7]** U.S. Government Accountability Office, “Data Protection: Actions Taken by Equifax and Federal Agencies in Response to the 2017 Breach,” Gao.gov, vol. GAO-18-559, no. GAO-18-559, 2018, [Online]. Available: https://www.gao.gov/products/GAO-18-559
-
+> **[7]** U.S. Government Accountability Office, “Data Protection: Actions Taken by Equifax and Federal Agencies in Response to the 2017 Breach,” Gao.gov, vol. GAO-18-559, no. GAO-18-559, 2018, [Online]. Available: [here](https://www.gao.gov/products/GAO-18-559)
+---
+> **[8]** Li Yuanyuan, Xiao Peng and Deng Wu, "The method to test Linux software performance," 2010 International Conference on Computer and Communication Technologies in Agriculture Engineering, Chengdu, 2010, pp. 420-423, [DOI]. Available: [doi](https://ieeexplore.ieee.org/abstract/document/5544096):10.1109/CCTAE.2010.5544096.
 
 
 

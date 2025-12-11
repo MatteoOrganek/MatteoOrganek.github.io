@@ -32,11 +32,11 @@ System hardening is a process that changes the default settings in an operating 
 
 The following commands will disable root login, enforce key-based authentication, and change default port.
 ```bash
-sudo nano /etc/ssh/sshd_config
+sudo vi /etc/ssh/sshd_config
+> Port: 9876
 > PermitRootLogin: no
-> PasswordAuthentication: no
-> Port: 2222
-sudo systemctl restart ssh
+sudo systemctl disable sshd
+sudo systemctl enable sshd
 ```
 *Disabling password login and root access mitigates credential brute-forcing and privilege escalation. In 2016, Linux Mint’s servers were breached after attackers gained unauthorized access through weak SSH configuration, allowing a malicious ISO to be distributed [[6]](/references.md).*
 
@@ -46,14 +46,11 @@ sudo systemctl restart ssh
 
 The following will configure ufw (Ubuntu) / firewalld (Fedora), allow only SSH + required services and will drop everything else.
 ```bash
-# Ubuntu
-sudo ufw enable
-sudo ufw allow 2222/tcp
-sudo ufw default deny incoming
-# Fedora
-sudo firewalld enable
-sudo firewalld allow 2222/tcp
-sudo firewalld default deny incoming
+# fedora
+sudo firewall-cmd --permanent --add-port=9876/tcp
+# Just in case, remove default port
+sudo firewall-cmd --permanent --remove-port=22/tcp 
+sudo firewall-cmd --reload
 ```
 *Configuring Firewalls to allow only certain connections can stop an incoming attack or stop the spread of viruses. WannaCry spread globally in May 2017, infecting hundreds of thousands of computers in 150+ countries. The primary exploit was EternalBlue (CVE-2017-0145) against Microsoft Windows systems with unpatched SMB vulnerabilities. It managed to duplicate itself through the network due to a lack of firewall defenses [[7]](/references.md).*
 
@@ -88,7 +85,7 @@ getenforce
 
 *Below you can find a trust boundary diagram showing both VMs' system hardening result*
 
-![Trust Boundary Diagram](assets/week2/trust.png)
+![Trust Boundary Diagram](../assets/week2/trust.png)
 
 ---
 &nbsp;
