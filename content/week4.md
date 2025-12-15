@@ -2,7 +2,7 @@
 
 
 This week focuses on setting up *SSH* key-based authentication for easier login, firewall IP filtering so that only the workstation is able to connect via *SSH* and basic user creation / sudoers escalation.
-Most of the following commands have been introduced in [week 2](/week2.md) in the *System Hardening checklist*.
+> Most of the following commands have been introduced in [week 2](/week2.md) in the *System Hardening checklist*.
 
 &nbsp;
 
@@ -28,7 +28,7 @@ ssh-copy-id -l ./id_rsa.pub fedora@192.168.0.100
 ![Ssh copy id](../assets/week4/auth.png)
 ![Ssh copy id](../assets/week4/cat_auth.png)
 
-When connecting to the server, *SSH* will prompt for a passcode for the key. After a successful login, no more passwords will be prompted when attempting to connect.
+When connecting to the server, *SSH* will prompt for a passcode for the key. After a successful login, no more passwords will be prompted when attempting to connect in the current session (It will ask every time the OS wakes up).
 
 ![Passphrase request](../assets/week4/key_passphrase.png)
 
@@ -53,6 +53,10 @@ I changed the firewall settings to only allow 9876, I have tried to remove port 
 Below you can find all rulesets of the firewall, as I have changed only the port, no other rule has changed.
 
 ![firewall_all.png](../assets/week4/firewall_all.png)
+
+Now as there might have been more open ports, I flushed all existing rules and set the default policies to block everything and allow outgoing network.
+
+![firewall_reset.png](../assets/week4/firewall_reset.png)
 
 I tried connecting from the client, but sshd.service was throwing an error, it being a misconfiguration of *sshd_config*,
 

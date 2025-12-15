@@ -1,7 +1,7 @@
 ## Application Selection for Performance Testing
 
 To be able to observe CPU, RAM, I/O or network spikes, I decided to use applications dedicated to stress testing [[8]](/references.md), as normal applications such as web browsers or calculators do not fully consume each resource.
-Below you may find the application selection matrix, based on a research on the web.
+Below you may find the application selection matrix, based on researching the web.
 
 &nbsp;
 
@@ -18,7 +18,7 @@ Below you may find the application selection matrix, based on a research on the 
 ### > Installation Documentation (SSH Commands)
 
 
-All applications have been installed remotely via SSH connection through Windows' *CMD*:
+All applications have been installed remotely via SSH connection through Windows' *CMD* logged in as both machines:
 
 ```bash
 ssh fedora@192.168.0.100
@@ -61,16 +61,16 @@ Following the above commands, I updated both VMs (this can be done between VMs a
 &nbsp;
 ### > Expected Resource Profiles
 
-To make sure that I understand how these applications, I created a table showing the command together with their respective expected resource usage.
+To make sure that I understand how these applications behave, I created a table showing the command together with their respective expected resource usage.
 
 &nbsp;
 
-| Application                                 | Expected CPU Usage | Expected RAM Usage | Expected Disk I/O | 
-|---------------------------------------------| ------------------ | ------------------ |-------------------| 
-| `stress-ng --cpu 3`                         | Very High          | Low/Medium         | Minimal           | 
-| `stress-ng --vm 2 --vm-bytes 1G`            | Low CPU            | High RAM usage     | Minimal           | 
-| `dd if=/dev/zero of=testfile bs=3G count=2` | Low/Medium         | Low                | Very High         | 
-| `iperf3 -s` / `iperf3 -c 192.168.0.100:101` | Medium             | Low                | Medium/High       |
+| Application                                  | Expected CPU Usage | Expected RAM Usage | Expected Disk I/O | 
+|----------------------------------------------|--------------------|--------------------|-------------------| 
+| `stress-ng --cpu 7`                          | Very High          | Low/Medium         | Minimal           | 
+| `stress-ng --vm 2 --vm-bytes 5G`             | Low CPU            | High RAM usage     | Minimal           | 
+| `dd if=/dev/zero of=testfile bs=3G count=40` | Low                | Low/Medium         | Very High         | 
+| `iperf3 -s` / `iperf3 -c 192.168.0.100:101`  | Medium             | Low                | Medium/High       |
 
 ---
 &nbsp;

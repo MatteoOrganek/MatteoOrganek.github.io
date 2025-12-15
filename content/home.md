@@ -1,6 +1,21 @@
-## Operating Systems Journal
-
-
+```text
+                                                                                                                                                                                        
+    ,----..                                                                                                                                                                             
+   /   /   \                                             ___                                              .--.--.                          ___                       ____               
+  /   .     : ,-.----.                                 ,--.'|_    ,--,                                   /  /    '.                      ,--.'|_                   ,'  , `.             
+ .   /   ;.  \\    /  \             __  ,-.            |  | :,' ,--.'|         ,---,                    |  :  /`. /                      |  | :,'               ,-+-,.' _ |             
+.   ;   /  ` ;|   :    |          ,' ,'/ /|            :  : ' : |  |,      ,-+-. /  |  ,----._,.        ;  |  |--`             .--.--.   :  : ' :            ,-+-. ;   , ||  .--.--.    
+;   |  ; \ ; ||   | .\ :   ,---.  '  | |' | ,--.--.  .;__,'  /  `--'_     ,--.'|'   | /   /  ' /        |  :  ;_         .--, /  /    '.;__,'  /     ,---.  ,--.'|'   |  || /  /    '   
+|   :  | ; | '.   : |: |  /     \ |  |   ,'/       \ |  |   |   ,' ,'|   |   |  ,"' ||   :     |         \  \    `.    /_ ./||  :  /`./|  |   |     /     \|   |  ,', |  |,|  :  /`./   
+.   |  ' ' ' :|   |  \ : /    /  |'  :  / .--.  .-. |:__,'| :   '  | |   |   | /  | ||   | .\  .          `----.   \, ' , ' :|  :  ;_  :__,'| :    /    /  |   | /  | |--' |  :  ;_     
+'   ;  \; /  ||   : .  |.    ' / ||  | '   \__\/: . .  '  : |__ |  | :   |   | |  | |.   ; ';  |          __ \  \  /___/ \: | \  \    `. '  : |__ .    ' / |   : |  | ,     \  \    `.  
+ \   \  ',  / :     |`-''   ;   /|;  : |   ," .--.; |  |  | '.'|'  : |__ |   | |  |/ '   .   . |         /  /`--'  /.  \  ' |  `----.   \|  | '.'|'   ;   /|   : |  |/       `----.   \ 
+  ;   :    /  :   : :   '   |  / ||  , ;  /  /  ,.  |  ;  :    ;|  | '.'||   | |--'   `---`-'| |        '--'.     /  \  ;   : /  /`--'  /;  :    ;'   |  / |   | |`-'       /  /`--'  / 
+   \   \ .'   |   | :   |   :    | ---'  ;  :   .'   \ |  ,   / ;  :    ;|   |/       .'__/\_: |          `--'---'    \  \  ;'--'.     / |  ,   / |   :    |   ;/          '--'.     /  
+    `---`     `---'.|    \   \  /        |  ,     .-./  ---`-'  |  ,   / '---'        |   :    :                       :  \  \ `--'---'   ---`-'   \   \  /'---'             `--'---'   
+                `---`     `----'          `--`---'               ---`-'                \   \  /                         \  ' ;                      `----'                              
+                                                                                        `--`-'                           `--`                                                           
+```
 
 This journal focuses on describing my learning journey on the foundation of Operating Systems. 
 
@@ -15,22 +30,9 @@ Each topic is split by weeks covering:
 
 &nbsp;
 
-Data centres consume approximately 1% of global electricity, with projections reaching 3-8%
+> Data centres consume approximately 1% of global electricity, with projections reaching 3-8%
 by 2030 [[1]](/references.md). Optimised OS configurations can reduce server energy consumption by 15-30%
 through improved resource utilisation [[2]](/references.md). Understanding how to configure, secure, and
 evaluate operating systems is fundamental to computing practice.
 
 &nbsp;
-
----
-
-### > Employability and Professional Skills
-The following list shows the necessary professional skills for OS configuration and security, covered in each week. 
-- Deploy and manage a basic Linux server infrastructure
-- Configure and harden remote systems using SSH and command-line tools.
-- Develop automation scripts for security verification and system monitoring
-- Analyse and document technical trade-offs using quantitative data
-- Communicate complex technical implementations through written reports and recorded demonstrations
-- Implement industry-standard security controls (firewalls, key-based authentication, mandatory access control, intrusion detection)
-- Troubleshoot and resolve technical problems in networked environments
-- Create professional technical documentation with architecture diagrams and performance visualisations

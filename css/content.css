@@ -138,3 +138,7 @@ tbody tr:nth-child(odd) {
 tbody tr:nth-child(even) {
     background-color: #f6f8fa;
 }
+img {
+    display: block;
+    margin-right: auto;
+}
