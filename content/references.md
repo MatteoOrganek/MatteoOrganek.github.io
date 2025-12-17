@@ -28,10 +28,8 @@
 ---
 > **[14]** Quantitative data gathered from stress tests created by monitor-server.sh. [Internal]. Available: [here](../assets/week6/master.xlsx).
 ---
-> **[15]** “Chapter 29. Stress testing real-time systems with stress-ng | Red Hat Product Documentation,” Redhat.com, 2024. Available: [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/8/html/optimizing_rhel_8_for_real_time_for_low_latency_operation/assembly_stress-testing-real-time-systems-with-stress-ng_optimizing-rhel8-for-real-time-for-low-latency-operation)
+> **[15]** “Chapter 29. Stress testing real-time systems with stress-ng | Red Hat Product Documentation,” Redhat.com, 2024. [Online]. Available: [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/8/html/optimizing_rhel_8_for_real_time_for_low_latency_operation/assembly_stress-testing-real-time-systems-with-stress-ng_optimizing-rhel8-for-real-time-for-low-latency-operation)
+---
+> **[16]** A. Formy-Duval, “How to read Lynis reports to improve Linux security,” Opensource.com, 2020. [Online]. Available: [here](https://opensource.com/article/20/8/linux-lynis-security).
 ---
 > **[xx]**  Available: [here]().
-
-
- 
-

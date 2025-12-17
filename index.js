@@ -62,7 +62,7 @@ fetchDB().then((data) => {
     dataCache = data
     // TODO Change back to home when finished
     // Selects first page load
-    loadPage('/week6')
+    loadPage('/week7')
 })
 
 
