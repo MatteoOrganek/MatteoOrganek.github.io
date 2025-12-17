@@ -51,7 +51,7 @@ Finally, after following some of the suggestions, I received a score of 83/100, 
 After hardening the system using suggestions from Lynis, I focused on assessing the network security, focusing on identifying open ports, services, and potential vulnerabilities.
 
 ```bash
-sudo nmap -sS -sV -O 192.168.0.100
+sudo nmap -sS -sV 192.168.0.100
 ```
 
 
