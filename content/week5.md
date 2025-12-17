@@ -207,7 +207,7 @@ All of these metrics will be used to discover if my expectations mentioned in [w
 # monitor-server.sh
 
 # Remote monitoring script that is able to collect CPU, RAM, I/O, Network and Load and write them in a CSV file used for quantitative data collection during stress-testing.
-# This specific script works only with enp0s8 interfaces, please head to the Variables declaration section to change it.
+# This specific script works only with enp0s8 interfaces.
 
 
 # Start a new ssh-agent and export its environment variables, this keeps the agent in memory, removing the need of logging in multiple times.
@@ -232,7 +232,7 @@ SSH_PORT="9876"
 KEY="/home/ubuntu/.ssh/id_rsa"
 
 # Interval between samples (seconds)
-INTERVAL="1"
+INTERVAL="0"
 
 # Total amount of data collected
 SAMPLES="30"
@@ -240,8 +240,6 @@ SAMPLES="30"
 # CSV file name
 CSV_FILE="server_metrics.csv"
 
-# Network Interface
-NET_IF="enp0s8"
 
 
 # CSV initialization, if the CSV file does not exist, create one and add headers
@@ -345,10 +343,10 @@ collect_data() {
 	fi
 
 	# Network throughput (RX and TX)
-	if [ -n "$NET_IF" ]; then
+	if [ -n "enp0s8" ]; then
 		# Find in /proc/net/dev the interface named "enp0s8", then fetch the second and tenth column (RX and TX). Output both.
-		NET=$($NICE_CMD $IONICE_CMD awk -v iface="$NET_IF" '
-			$1 ~ iface {
+		NET=$($NICE_CMD $IONICE_CMD awk -v iface="enp0s8" '
+			$1 ~ iface":" {
 				rx=$2/1024; 
 				tx=$10/1024; 
 				print rx "," tx
@@ -411,3 +409,11 @@ sudo bash security-baseline.sh
 
 sudo bash monitor-server.sh
 ```
+
+
+---
+&nbsp;
+
+### > Closing thoughts
+
+In Week 5, I focused on reinforcing the security of the Fedora server using week 5's checklist while preparing for systematic performance monitoring. I verified that SELinux was enforcing mandatory access control, checked Boolean configurations, and reviewed audit logs to ensure proper policy enforcement. I configured automatic updates with dnf-automatic to reduce exposure to known vulnerabilities, and fail2ban was set up alongside FirewallD to detect and block suspicious authentication attempts. To maintain consistency and enable repeat verification, I developed a baseline security script that checks SSH key-based login, firewall rules, SELinux status, and the presence of a non-root administrative user. In parallel, I created a remote monitoring script that logs CPU, memory, I/O, network, and system load metrics to a CSV file, ensuring data collection would not interfere with system performance by using nice and ionice. Overall, Week 5 highlighted the interplay between security and system performance, showing how automated policies, access controls, and monitoring scripts can maintain a hardened, observable environment.

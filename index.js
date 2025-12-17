@@ -60,9 +60,8 @@ fetchDB().then((data) => {
         buildSideBar(x.icon, x.name, x.link, x.content)
     }
     dataCache = data
-    // TODO Change back to home when finished
     // Selects first page load
-    loadPage('/week7')
+    loadPage('/home')
 })
 
 

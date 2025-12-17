@@ -100,3 +100,11 @@ Below you may find three different threats and their respective mitigation strat
 | *Unauthorized Access via SSH Brute Force*  | Attackers attempt repeated login attempts to gain access through SSH.         | System accounts, stored data, server integrity.            | Attacker gains control, data breach, service disruption.                             | Implement key-based authentication, disable password login, change default SSH port, use Fail2Ban, disable root login. |
 | *Privilege Escalation*                     | A user or malicious actor exploits misconfigurations to gain elevated access. | Root privileges, configuration files, full system control. | Total system compromise, deletion or modification of files, persistence of attacker. | Enforce least-privilege access, audit sudoers regularly, apply security patches, enable logging and alerts.            |
 | *Denial of Service (DoS)*                  | Excessive traffic or resource-heavy requests overload system resources.       | CPU, RAM, network bandwidth.                               | Service outage, performance degradation, loss of availability.                       | Enable rate-limiting, configure firewall rules, resource monitoring, load testing, set ulimit constraints.             |
+
+---
+&nbsp;
+
+### > Closing thoughts
+
+In week 2, I focused on creating a secure and manageable testing environment for the two Linux virtual machines. The main goal was to harden the systems, ensuring secure remote access and reducing potential vulnerabilities before running any performance tests. I applied SSH hardening by disabling root login, enforcing key-based authentication, and changing the default port. Firewalls were configured to allow only required services, and automatic updates were enabled to keep both Ubuntu and Fedora up to date. Additionally, I enabled AppArmor on Ubuntu and SELinux on Fedora to enforce mandatory access control. These steps were new for me as I never secured my server in this way. Finally, I decided to use the mentioned points to create a solid foundation, minimizing risk from unauthorized access or misconfigurations.
+

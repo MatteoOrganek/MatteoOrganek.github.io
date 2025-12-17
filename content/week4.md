@@ -108,3 +108,11 @@ Host server
 
 Now, by writing `ssh server`, *SSH* recognises the host and user by looking into config and automatically requests a connection. Thanks to the key setup the server skips any login prompt.
 ![ssh_server.png](../assets/week4/ssh_server.png)
+
+
+---
+&nbsp;
+
+### > Closing thoughts
+
+In week 4, I focused on refining the system configuration and strengthening access controls. The main tasks included setting up SSH key-based authentication to simplify secure logins, configuring the firewall to allow connections only from the designated workstation (client), and creating a non-root administrative user with sudo privileges (Admin). I generated an SSH key pair, copied the public key to the server, and verified that login no longer required passwords for the client, while still prompting for the passphrase. The firewall was a bit hard to setup as it would drop the ssh connection on restart, but I was able to restrict incoming SSH traffic to port 9876 and only allow the client’s IP address, with all other ports blocked by default. Finally, I created a new user, added it to the wheel group for administrative privileges, and configured an SSH alias for simplified connection. These changes made it so that only trusted clients could access the server while lowering the risk of potential attacks.

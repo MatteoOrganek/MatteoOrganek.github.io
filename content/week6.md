@@ -1,6 +1,6 @@
 ## Performance Evaluation and Analysis
 
-In week 6, I have tested some performance metrics against applications highlighted in [week 3](/week3.md). After planning the test, together with making sure that they have been installed in week 5, I executed the tests by firstly creating a baseline. The tests were conducted in the server through the client to identify performance bottlenecks and potential optimizations.
+In week 6, I have tested some performance metrics against applications highlighted in [week 3](/week3.md). After planning the test, together with making sure that they have been installed in [week 5](/week5.md), I executed the tests by firstly creating a baseline. The tests were conducted in the server through the client to identify performance bottlenecks and potential optimizations.
 
 I ensured that no other applications were running and executed each of the four programs in parallel with monitoring tools and `monitor-server.sh`. 
 > Once the data was collected, I would continue with the next application until all applications were monitored on CPU usage, memory usage, disk I/O, network throughput, system latency, and service response times.
@@ -221,7 +221,7 @@ Increasing buffer sizes improves sustained throughput and reduces latency varian
 ---
 &nbsp;
 
-*Please note that `nice` has been considered as an optimization for each application (except for `iperf3`).*
+*Please note that `nice` has been considered as an optimization for each application discussed in [week 5](/week5.md) (except for `iperf3`).*
 
 &nbsp;
 

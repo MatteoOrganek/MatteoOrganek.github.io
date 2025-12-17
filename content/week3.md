@@ -89,3 +89,10 @@ Each application will be monitored through its associated tool. The tool will be
 
 
 *Most of the above tools will be used as visual aid, as you only need one tool per metric (see [week 5](/week5.md)).* 
+
+---
+&nbsp;
+
+### > Closing thoughts
+
+Week 3 marked the point where the coursework shifted from abstract planning to deliberate, testable decision-making. Selecting applications specifically designed to stress individual system resources forced me to think critically about how operating systems behave under controlled load rather than everyday usage. By choosing tools such as `stress-ng`, `dd`, and `iperf3`, I was able to choose application based on a single workload type, making sure that any observed spikes in CPU, memory, disk I/O, or network usage could be attributed to a specific metric. Creating resource profiles before testing also helped with understanding OS metrics, as the observed behaviour in later phases closely matched these predictions. This phase created the foundation for all of my analysis, as it helped with the identification of bottlenecks and trade-offs.

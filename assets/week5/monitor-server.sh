@@ -5,6 +5,7 @@
 # monitor-server.sh
 
 # Remote monitoring script that is able to collect CPU, RAM, I/O, Network and Load and write them in a CSV file used for quantitative data collection during stress-testing.
+# This specific script works only with enp0s8 interfaces.
 
 
 # Start a new ssh-agent and export its environment variables, this keeps the agent in memory, removing the need of logging in multiple times.
@@ -29,13 +30,14 @@ SSH_PORT="9876"
 KEY="/home/ubuntu/.ssh/id_rsa"
 
 # Interval between samples (seconds)
-INTERVAL="1"
+INTERVAL="0"
 
 # Total amount of data collected
 SAMPLES="30"
 
 # CSV file name
 CSV_FILE="server_metrics.csv"
+
 
 
 # CSV initialization, if the CSV file does not exist, create one and add headers
@@ -89,7 +91,7 @@ collect_data() {
 		}')
 
 
-	# Disk I/O ()
+	# Disk I/O (Disk Read (MB/s), Disk Write (MB/s), Disk Read Latency, Disk Write Latency)
 	# Find the first non-loop, non-RAM disk device
 	# '$3 !~ /loop|ram/' (regex) takes only devices whose name does NOT contain “loop” or “ram”.
 	# /proc/diskstats contains a line for every block device, where the regex has effect.
@@ -98,8 +100,8 @@ collect_data() {
 
 	# If the file exists
 	if [ -n "$DISK_NAME" ]; then
-
-
+		
+		# Search in /proc/diskstats the disk and output its vales
 		DISK=$($NICE_CMD $IONICE_CMD awk -v d="$DISK_NAME" '
 			$3==d {
 				printf "%s,%s,%s,%s",
@@ -117,45 +119,58 @@ collect_data() {
 		write_ms=$(awk -v d="$DISK_NAME" '$3==d {print $11}' /proc/diskstats)
 
 		# Initialise latency values
-		read_latency=0
-		write_latency=0
+		READ_LATENCY=0
+		WRITE_LATENCY=0
 		
 		# Calculate read latency by dividing operations completed with the time spent writing/reading (if greater than zero -gt 0)
 		if [ "$read_ops" -gt 0 ]; then
 			# scale=2 tells the calculator to trim to two decimals
 			# | bc tells the system to use a floating point calculator
-			read_latency=$(echo "scale=2; $read_ms / $read_ops" | bc)
+			READ_LATENCY=$(echo "scale=2; $read_ms / $read_ops" | bc)
 		fi
 		if [ "$write_ops" -gt 0 ]; then
 			# scale=2 tells the calculator to trim to two decimals
 			# | bc tells the system to use a floating point calculator
-			write_latency=$(echo "scale=2; $write_ms / $write_ops" | bc)
+			WRITE_LATENCY=$(echo "scale=2; $write_ms / $write_ops" | bc)
 		fi
 	else
 		# No disk has been detected, provide empty values
 		DISK="0,0,0,0"
-		read_latency=0
-		write_latency=0
+		READ_LATENCY=0
+		WRITE_LATENCY=0
 	fi
 
-	# Network throughput
-
+	# Network throughput (RX and TX)
 	if [ -n "enp0s8" ]; then
-		NET=$($NICE_CMD $IONICE_CMD awk -v iface="enp0s8" '$1 ~ iface {rx=$2/1024; tx=$10/1024; print rx "," tx}' /proc/net/dev)
+		# Find in /proc/net/dev the interface named "enp0s8", then fetch the second and tenth column (RX and TX). Output both.
+		NET=$($NICE_CMD $IONICE_CMD awk -v iface="enp0s8" '
+			$1 ~ iface":" {
+				rx=$2/1024; 
+				tx=$10/1024; 
+				print rx "," tx
+			}' /proc/net/dev)
 	else
+		# Network Interface not found.
 		NET="0,0"
 	fi
 
-	# Network latency (ping localhost, ms)
+	# Network latency (ping localhost)
+	# Get the first row from the ping command to localhost (-c1 sends one packet tith a wait time of 1 second (-W1)) to fetch the built-in latency that ping offers.
 	NET_LATENCY=$(ping -c1 -W1 127.0.0.1 | awk -F'=' '/time=/{split($4,a," "); print a[1]}')
 	if [ -z "$NET_LATENCY" ]; then
+		# Ping failed, return zero
 		NET_LATENCY=0
 	fi
 
-	# Load
-	LOAD=$(uptime | awk -F'load average:' '{if($2) print $2; else print "0"}' | awk -F',' '{gsub(/ /,""); print $1}')
+	# Use uptime to fetch a 1-minute load average
+	# First awk isolates the data (1m, 5m, 15m). If everything after load average: exists, output it. Else, Output 0
+	# The second awk removes spaces commas and fetches only the first element, the 1m one
+	LOAD=$(uptime | awk -F'load average:' '{ 
+		if($2) print $2; 
+		else print "0"}
+	' | awk -F',' '{gsub(/ /,""); print $1}')
 
-	echo "$TS,$CPU,$MEM,$DISK,$NET,$LOAD,$read_latency,$write_latency,$NET_LATENCY"
+	echo "$TS,$CPU,$MEM,$DISK,$NET,$LOAD,$READ_LATENCY,$WRITE_LATENCY,$NET_LATENCY"
 EOF
 }
 
@@ -163,10 +178,12 @@ EOF
 echo "Starting remote server monitoring..."
 echo "Collecting $SAMPLES samples."
 
+# For every sample declared earlier
 for ((i=1; i<=SAMPLES; i++)); do
 	echo "Collecting sample $i/$SAMPLES..."
 	# Append metrics to CSV
 	collect_data >> "$CSV_FILE"   
+	# Sleep for x seconds
 	sleep "$INTERVAL"
 done
 

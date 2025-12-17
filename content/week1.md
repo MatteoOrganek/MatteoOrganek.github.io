@@ -127,3 +127,10 @@ lsb_release -a
 &nbsp;
 
 *All commands functionalities have been discovered through the `man` command.*
+
+---
+&nbsp;
+
+### > Closing thoughts
+
+In week one we were tasked on deciding the system architecture for testing. At first, it was daunting as I did not have a clear picture of what specifically the Coursework required us to do. After reviewing all the specifications, I decided to use Fedora Server for the headless server as I already set up one in my house, together with the fact that it does not come with a lot of bloatware compared to other OSs. The choice of Ubuntu was mainly influenced by the ease of use. The basics of CLI went smoothly, as I was already familiar with it and I was able to quickly test all commands. Overall, it does interest me taking on the challenge of building a new system from the ground up.

@@ -32,4 +32,4 @@
 ---
 > **[16]** A. Formy-Duval, “How to read Lynis reports to improve Linux security,” Opensource.com, 2020. [Online]. Available: [here](https://opensource.com/article/20/8/linux-lynis-security).
 ---
-> **[xx]**  Available: [here]().
+> **[17]** V. C. Hu and K. Scarfone, “Guidelines for Access Control System Evaluation Metrics, 4.2.3” Sep. 2012, [DOI] Available: [here](https://doi.org/10.6028/nist.ir.7874). 
