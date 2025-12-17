@@ -126,4 +126,4 @@ lsb_release -a
 
 &nbsp;
 
-*All commands functionalities have been discovered through web searches.*
+*All commands functionalities have been discovered through the `man` command.*

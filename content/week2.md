@@ -33,18 +33,19 @@ System hardening is a process that changes the default settings in an operating 
 The following commands will disable root login, enforce key-based authentication, and change default port.
 ```bash
 sudo vi /etc/ssh/sshd_config
-> Port: 9876
+> Port: (22 -> 9876)
 > PermitRootLogin: no
 sudo systemctl disable sshd
 sudo systemctl enable sshd
 ```
-*Disabling password login and root access mitigates credential brute-forcing and privilege escalation. In 2016, Linux Mint’s servers were breached after attackers gained unauthorized access through weak SSH configuration, allowing a malicious ISO to be distributed [[6]](/references.md).*
+*By disabling password login and root access, I will reduced the risk of credential brute-forcing and privilege escalation. In 2016, Linux Mint’s servers were breached after attackers gained unauthorized access through weak SSH configuration, allowing a malicious ISO to be distributed [[6]](/references.md).*
 
 &nbsp;
 
 > Firewall configuration
 
-The following will configure ufw (Ubuntu) / firewalld (Fedora), allow only SSH + required services and will drop everything else.
+The below will configure ufw (Ubuntu) / firewalld (Fedora), allow only SSH + required services and will drop everything else. 
+*As changing the firewall requires a restart, the commands will be run directly from the server.*
 ```bash
 # fedora
 sudo firewall-cmd --permanent --add-port=9876/tcp
@@ -58,7 +59,7 @@ sudo firewall-cmd --reload
 
 > Automatic updates 
 
-Configure automatic updates with unattended-upgrades / dnf automatic update service
+Configuring automatic updates with unattended-upgrades / dnf automatic update service
 ```bash
 # Ubuntu
 sudo apt install unattended-upgrades

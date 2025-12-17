@@ -20,13 +20,15 @@
 ---
 > **[10]** “About Administering SELinux in Oracle Linux,” Oracle Help Center, 2025. [Online]. Available: [here](https://docs.oracle.com/en/operating-systems/oracle-linux/selinux/selinux-AboutAdministeringSELinux.html).
 ---
-> **[11]** “Automatic Updates,” Fedora Docs, 2022. Available: [here](https://docs.fedoraproject.org/en-US/quick-docs/autoupdates/).
+> **[11]** “Automatic Updates,” Fedora Docs, 2022. [Online]. Available: [here](https://docs.fedoraproject.org/en-US/quick-docs/autoupdates/).
 ---
-> **[12]** “Fail2ban with FirewallD - Fedora Project Wiki,” Fedoraproject.org, 2025. Available: [here](https://fedoraproject.org/wiki/Fail2ban_with_FirewallD).
-
+> **[12]** “Fail2ban with FirewallD - Fedora Project Wiki,” Fedoraproject.org, 2025.[Online]. Available: [here](https://fedoraproject.org/wiki/Fail2ban_with_FirewallD).
 ---
-> **[xx]** “Bash Reference Manual,” www.gnu.org. [Online]. Available: [here](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html).
-
+> **[13]** “Bash Reference Manual,” www.gnu.org. [Online]. Available: [here](https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html).
+---
+> **[14]** Quantitative data gathered from stress tests created by monitor-server.sh. [Internal]. Available: [here](../assets/week6/master.xlsx).
+---
+> **[15]** “Chapter 29. Stress testing real-time systems with stress-ng | Red Hat Product Documentation,” Redhat.com, 2024. Available: [here](https://docs.redhat.com/en/documentation/red_hat_enterprise_linux_for_real_time/8/html/optimizing_rhel_8_for_real_time_for_low_latency_operation/assembly_stress-testing-real-time-systems-with-stress-ng_optimizing-rhel8-for-real-time-for-low-latency-operation)
 ---
 > **[xx]**  Available: [here]().
 

@@ -90,7 +90,7 @@ Finally, each action is logged in */var/log/fail2ban.log*, and it can be read wi
 
 ### > Baseline Verification Script
 
-A baseline verification script is an automated procedure used to validate that a system, application, or configuration is equal to a pre-established "baseline" or reference standard. In my case, I created a script that is able to verify all security configurations mentioned in week 4 and 5.
+A baseline verification script is an automated procedure used to validate that a system, application, or configuration is equal to a pre-established "baseline" or reference standard. In my case, I created a script that is able to verify all security configurations mentioned in week 4 and 5 [[13]](/references.md).
 
 ```bash
 #!/bin/bash
@@ -197,7 +197,7 @@ To prepare for [week 6](/week6.md), I created `monitor-server.sh`, an automated 
 
 &nbsp;
 
-All of these metrics will be used to discover if my expectations mentioned in [week 3](/week3.md) can be proven right, with the addition of performance improvements. Below you can find `monitor-server.sh`, available to download [here](../assets/week5/monitor-server.sh)  .
+All of these metrics will be used to discover if my expectations mentioned in [week 3](/week3.md) can be proven right, with the addition of performance improvements. Below you can find `monitor-server.sh`, available to download [here](../assets/week5/monitor-server.sh).
 
 ```bash
 #!/bin/bash
@@ -395,13 +395,15 @@ echo "Action complete. Data saved to $CSV_FILE"
 
 ```
 
+![monitor.png](../assets/week5/monitor.png)
+
 &nbsp;
 
 As the script has been written in Windows, it returned errors in linux (" : error running command") as Windows saves text with an `\r` at the end of each line. To solve this issues, I made sure to run `dos2unix` before executing the script as it helped convert any artifacts in the script.
 
 ![dos2unix.png](../assets/week5/dos2unix.png)
 
-There have been some issues with the script not running while under heavy load as well, as the other stress applications were taking all the resources. To combat this, the script includes the `nice` and `ionice` command, both meant to decrease the 'niceness' of the process, hence giving it more priority. To build on it, all commands ran in fedora were given a 'niceness' of 20 (lowest).
+There have been some issues with the script not running while under heavy load as well, as the other stress applications were taking all the resources. To combat this, the script includes the `nice` and `ionice` command, both meant to decrease the 'niceness' of the process, hence giving it more priority. To build on it, all commands ran in fedora were given a 'niceness' of 20 (lowest). 
 
 To run `security-baseline.sh` and `monitor-server.sh`, paste the following:
 ```bash

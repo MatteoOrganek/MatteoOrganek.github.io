@@ -62,7 +62,7 @@ fetchDB().then((data) => {
     dataCache = data
     // TODO Change back to home when finished
     // Selects first page load
-    loadPage('/week5')
+    loadPage('/week6')
 })
 
 
@@ -115,6 +115,7 @@ async function updateContent(path, icon, title, link){
 
     document.getElementById(link).classList.add("active")
 
+    content.parentElement.scrollTo({ top: 0, behavior: "smooth" })
     content.parentElement.scrollTo({ top: 0, behavior: "smooth" })
 }
 

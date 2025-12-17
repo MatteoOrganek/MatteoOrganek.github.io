@@ -65,12 +65,12 @@ To make sure that I understand how these applications behave, I created a table 
 
 &nbsp;
 
-| Application                                  | Expected CPU Usage | Expected RAM Usage | Expected Disk I/O | 
-|----------------------------------------------|--------------------|--------------------|-------------------| 
-| `stress-ng --cpu 7`                          | Very High          | Low/Medium         | Minimal           | 
-| `stress-ng --vm 2 --vm-bytes 5G`             | Low CPU            | High RAM usage     | Minimal           | 
-| `dd if=/dev/zero of=testfile bs=3G count=40` | Low                | Low/Medium         | Very High         | 
-| `iperf3 -s` / `iperf3 -c 192.168.0.100:101`  | Medium             | Low                | Medium/High       |
+| Application                                   | Expected CPU Usage | Expected RAM Usage | Expected Disk I/O | 
+|-----------------------------------------------|--------------------|--------------------|-------------------| 
+| `stress-ng --cpu 7`                           | Very High          | Low/Medium         | Minimal           | 
+| `stress-ng --vm 2 --vm-bytes 5G`              | Low CPU            | High RAM usage     | Minimal           | 
+| `dd if=/dev/zero of=testfile bs=3G count=100` | Low                | Low/Medium         | Very High         | 
+| `iperf3 -s` / `iperf3 -c 192.168.0.100:101`   | Medium             | Low                | Medium/High       |
 
 ---
 &nbsp;
@@ -80,9 +80,12 @@ Each application will be monitored through its associated tool. The tool will be
 
 &nbsp;
 
-| Test            | Tools Used                  | Metrics Collected                      |
-| --------------- |-----------------------------|----------------------------------------|
-| CPU Stress Test | `htop`, `nmon`, `top`       | CPU %, load average                    |
-| RAM Saturation  | `free -h`, `vmstat`, `htop` | Memory consumption, swap usage         |
-| Disk I/O        | `iotop`, `dd`               | Read/write speed (MB/s), I/O wait time |
-| Network Test    | `iperf3`                    | Bandwidth (Mbps), latency, packet loss |
+| Test            | Tools Used                                   | Metrics Collected                      |
+| --------------- |----------------------------------------------|----------------------------------------|
+| CPU Stress Test | `htop`, `nmon`, `top`                        | CPU User, System and Idle %            |
+| RAM Saturation  | `free -h`, `vmstat`, `htop`, `/proc/meminfo` | Memory consumption, buffers            |
+| Disk I/O        | `iotop`, `dd`, `/proc/diskstats`             | Read/write speed (MB/s), I/O latency   |
+| Network Test    | `iperf3`, `ping`                             | Bandwidth (Mbps), latency, packet loss |
+
+
+*Most of the above tools will be used as visual aid, as you only need one tool per metric (see [week 5](/week5.md)).* 
